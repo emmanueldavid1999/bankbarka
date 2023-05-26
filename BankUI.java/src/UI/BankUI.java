@@ -26,7 +26,7 @@ public class BankUI {
     JButton getSaving_account = new JButton("DEPOSIT");
 
     JTextField Savings_account2 = new JTextField("AMOUNT");
-    JTextField Savings_pin = new JTextField("insert PIN");
+    JTextField Savings_pin = new JTextField( "PIN");
     JFrame WithdrawlFrame1 = new JFrame();
     JFrame Depositframe1 = new JFrame();
     JFrame WithdrawalFRAME2= new JFrame();
@@ -76,9 +76,10 @@ public class BankUI {
        getBank_button.addActionListener(e ->{
             SavingsFrame.add(SavingsFrame);
             SavingsFrame.add(Savings);
+           SavingsFrame.add(Savings_pin);
             SavingsFrame.setLayout(new FlowLayout(FlowLayout.TRAILING));
             SavingsFrame.setVisible(true);
-            SavingsFrame.setSize(200, 250);
+            SavingsFrame.setSize(250, 300);
 
 
         });
