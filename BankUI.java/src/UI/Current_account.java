@@ -1,52 +1,70 @@
-package UI;
 
-public class Current_account {
-    private double balance;
-    private double maxWithdrawal;
 
-    public Current_account(double initialBalance, double maxWithdrawal) {
-        this.balance = initialBalance;
-        this.maxWithdrawal = maxWithdrawal;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CurrentAccount {
+    private final int DEFAULT_PIN = 5555;
+
+    private JFrame currentFrame;
+    private JButton currentAccountWithdrawalButton;
+    private JButton currentAccountDepositButton;
+    private JTextField currentAmountField;
+    private JTextField currentPinField;
+
+    public CurrentAccount() {
+        initializeUI();
+        addEventListeners();
     }
 
-    public void withdraw(double amount) {
-        if (amount <= balance && amount <= maxWithdrawal) {
-            balance -= amount;
-            System.out.println("Withdrawal successful. Remaining balance: " + balance);
-        } else if (amount > maxWithdrawal) {
-            System.out.println("Withdrawal amount exceeds maximum withdrawal limit.");
-        } else {
-            System.out.println("Insufficient funds.");
-        }
+    private void initializeUI() {
+        currentFrame = new JFrame("CURRENT ACCOUNT");
+        currentAccountWithdrawalButton = new JButton("WITHDRAWAL");
+        currentAccountDepositButton = new JButton("DEPOSIT");
+        currentAmountField = new JTextField("AMOUNT");
+        currentPinField = new JTextField("PIN");
+
+        currentFrame.setLayout(new FlowLayout());
+        currentFrame.add(currentAccountWithdrawalButton);
+        currentFrame.add(currentAccountDepositButton);
+        currentFrame.add(currentAmountField);
+        currentFrame.add(currentPinField);
+        currentFrame.setSize(300, 150);
     }
 
-    public void deposit(double amount) {
-        balance += amount;
-        System.out.println("Deposit successful. Current balance: " +new balance);
+    private void addEventListeners() {
+        currentAccountWithdrawalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int pin = Integer.parseInt(currentPinField.getText());
+                if (pin == DEFAULT_PIN) {
+                    double amount = Double.parseDouble(currentAmountField.getText());
+                    // Perform withdrawal logic for current account
+                    JOptionPane.showMessageDialog(null, "Withdrawal successful.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid PIN.");
+                }
+            }
+        });
+
+        currentAccountDepositButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int pin = Integer.parseInt(currentPinField.getText());
+                if (pin == DEFAULT_PIN) {
+                    double amount = Double.parseDouble(currentAmountField.getText());
+                    // Perform deposit logic for current account
+                    JOptionPane.showMessageDialog(null, "Deposit successful.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid PIN.");
+                }
+            }
+        });
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public double getMaxWithdrawal() {
-        return maxWithdrawal;
-    }
-
-    public static void main(String[] args) {
-        Current_account account = new Current_account(100000, 10000);
-        double balance1 = account.balance;
-        System.out.println("Initial balance: " + account.getBalance());
-
-        // Example withdrawals
-        account.withdraw(5000);  // Valid withdrawal
-        account.withdraw(15000); // Exceeds maximum withdrawal limit
-        account.withdraw(100000); // Exceeds available balance
-
-        // Example deposit
-        account.deposit(5000); // Valid deposit
-        account.deposit(1000000); // Valid deposit, no limit
-
-        System.out.println("Final balance: " + account.getBalance());
+    public void show() {
+        currentFrame.setVisible(true);
     }
 }
