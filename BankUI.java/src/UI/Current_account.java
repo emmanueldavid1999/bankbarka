@@ -16,13 +16,13 @@ public class Current_account {
         } else if (amount > maxWithdrawal) {
             System.out.println("Withdrawal amount exceeds maximum withdrawal limit.");
         } else {
-            System.out.println("Insufficient balance.");
+            System.out.println("Insufficient funds.");
         }
     }
 
     public void deposit(double amount) {
         balance += amount;
-        System.out.println("Deposit successful. Current balance: " + balance);
+        System.out.println("Deposit successful. Current balance: " +new balance);
     }
 
     public double getBalance() {
