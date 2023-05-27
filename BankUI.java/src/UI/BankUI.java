@@ -44,7 +44,7 @@ public class BankUI {
         bankFrame.add(bank_area);
         bankFrame.add(bank_button);
         bankFrame.add(getBank_button);
-        bankFrame.setSize(300, 150);
+        bankFrame.setSize(300, 250);
         bankFrame.setVisible(true);
 
         currentFrame = new JFrame("CURRENT ACCOUNT");
@@ -58,7 +58,7 @@ public class BankUI {
         currentFrame.add(currentAccountDepositButton);
         currentFrame.add(currentAmountField);
         currentFrame.add(currentPinField);
-        currentFrame.setSize(300, 150);
+        currentFrame.setSize(300, 250);
 
         savingsFrame = new JFrame("JD SAVINGS ACCOUNT");
         savingsLabel = new JLabel("THANK YOU FOR CHOOSING JD SAVINGS ACCOUNT");
@@ -103,9 +103,9 @@ public class BankUI {
             if (pin == DEFAULT_PIN) {
                 double amount = Double.parseDouble(currentAmountField.getText());
                 // Perform deposit logic for current account
-                JOptionPane.showMessageDialog(null, "Deposit successful.");
+                JOptionPane.showMessageDialog(null, "Deposit successfulLY DONE.");
             } else {
-                JOptionPane.showMessageDialog(null, "Invalid PIN.");
+                JOptionPane.showMessageDialog(null, "WRONG PIN.");
             }
         });
 
@@ -114,9 +114,9 @@ public class BankUI {
             if (pin == DEFAULT_PIN) {
                 double amount = Double.parseDouble(savingsAmountField.getText());
                 // Perform withdrawal logic for savings account
-                JOptionPane.showMessageDialog(null, "Withdrawal successful.");
+                JOptionPane.showMessageDialog(null, "Withdrawal successful done.");
             } else {
-                JOptionPane.showMessageDialog(null, "Invalid PIN.");
+                JOptionPane.showMessageDialog(null, "Wrong PIN.");
             }
         });
 
