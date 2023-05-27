@@ -34,7 +34,7 @@ public class SavingsAccount {
         savingsFrame.add(savingsDepositButton);
         savingsFrame.add(savingsAmountField);
         savingsFrame.add(savingsPinField);
-        savingsFrame.setSize(300, 150);
+        savingsFrame.setSize(300, 250);
     }
 
     private void addEventListeners() {
