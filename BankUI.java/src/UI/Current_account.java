@@ -24,14 +24,14 @@ public class CurrentAccount {
         currentAccountWithdrawalButton = new JButton("WITHDRAWAL");
         currentAccountDepositButton = new JButton("DEPOSIT");
         currentAmountField = new JTextField("AMOUNT");
-        currentPinField = new JTextField("PIN");
+        currentPinField = new JTextField(" INSERT PIN");
 
         currentFrame.setLayout(new FlowLayout());
         currentFrame.add(currentAccountWithdrawalButton);
         currentFrame.add(currentAccountDepositButton);
         currentFrame.add(currentAmountField);
         currentFrame.add(currentPinField);
-        currentFrame.setSize(300, 150);
+        currentFrame.setSize(300, 250);
     }
 
     private void addEventListeners() {
@@ -42,9 +42,9 @@ public class CurrentAccount {
                 if (pin == DEFAULT_PIN) {
                     double amount = Double.parseDouble(currentAmountField.getText());
                     // Perform withdrawal logic for current account
-                    JOptionPane.showMessageDialog(null, "Withdrawal successful.");
+                    JOptionPane.showMessageDialog(null, "Withdrawal successful Done.");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Invalid PIN.");
+                    JOptionPane.showMessageDialog(null, "Wrong PIN.");
                 }
             }
         });
@@ -56,9 +56,9 @@ public class CurrentAccount {
                 if (pin == DEFAULT_PIN) {
                     double amount = Double.parseDouble(currentAmountField.getText());
                     // Perform deposit logic for current account
-                    JOptionPane.showMessageDialog(null, "Deposit successful.");
+                    JOptionPane.showMessageDialog(null, "Deposit successful DONE.");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Invalid PIN.");
+                    JOptionPane.showMessageDialog(null, "Wrong PIN.");
                 }
             }
         });
